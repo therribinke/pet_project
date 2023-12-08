@@ -1,39 +1,39 @@
 public class Human {
-    String name;
-    String surname;
-    int age;
+    private final String name;
+    private final String surname;
+    private final int age;
+
+    public Human(String name,String surname,int age) {
+        this.name=name;
+        this.surname=surname;
+        this.age=age;
+
+    }
+
     public void print(){
         System.out.println(name+" "+surname+" "+age);
     }
+
 }
-interface HumanBuilder{
-    HumanBuilder setName(String name);
-    HumanBuilder setSurname(String surname);
-    HumanBuilder setAge(int age);
-    Human build();
-}
-class HumanBuild implements HumanBuilder{
-    Human human=new Human();
-    @Override
-    public HumanBuilder setName(String name) {
-        human.name=name;
+
+class HumanBuild {
+    private String name;
+    private String surname;
+    private int age;
+    public HumanBuild setName(String name){
+        this.name=name;
         return this;
     }
-
-    @Override
-    public HumanBuilder setSurname(String surname) {
-        human.surname=surname;
+    public HumanBuild setSurname(String surname){
+        this.surname=surname;
         return this;
     }
-
-    @Override
-    public HumanBuilder setAge(int age) {
-        human.age=age;
+    public HumanBuild setAge(int age){
+        this.age=age;
         return this;
     }
-
-    @Override
-    public Human build() {
-        return human;
+public Human build(){
+        return new Human(this.name,this.surname,this.age);
     }
+
 }
