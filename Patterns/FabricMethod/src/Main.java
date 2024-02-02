@@ -37,8 +37,5 @@ class Main{
         one.think();
         two.think();
 
-
-
-
     }
 }

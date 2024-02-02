@@ -1,0 +1,3 @@
+interface Common{
+    Iterator getIterator();
+}
